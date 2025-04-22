@@ -36,8 +36,9 @@ async function fetchAmazonResults(keyword, retryCount = 0) {
             const ratingAndReview = el.querySelector('.a-spacing-top-micro span a span')?.textContent || '';
             const ratingData = ratingAndReview.split('stars');
             const rating = ratingData[0]?.trim().split(' ')[0] || '0';
-            const numberOfRatings = ratingData[1]?.trim() || '0';
+            const numberOfRatings = el.querySelector('.a-size-small .a-size-base')?.textContent.trim();
         
+ 
             const product = {
                 id: el.getAttribute('data-asin'),
                 name: el.querySelector('h2 span')?.textContent || '',
